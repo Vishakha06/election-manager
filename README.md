@@ -1,5 +1,5 @@
 # election-manager
-
+## Postman collection: https://www.getpostman.com/collections/057b4ab5d70f03e2bf5a
 ## Exercise
 A council would like to try new way of elections in a city and adopt it to other cities if it is successful. They want us to build a E-Board for managing elections with following capabilities.
 1. Citizens can nominate themselves for the elections as contenders.
