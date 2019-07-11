@@ -1,7 +1,6 @@
-package com.elections.service.exception;
+package com.elections.unitTests.service.exception;
 
 import java.util.List;
-import javax.xml.bind.annotation.XmlRootElement;
 
 public class ErrorResponse
 {

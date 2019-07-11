@@ -1,4 +1,4 @@
-package com.elections.service;
+package com.elections.unitTests.service;
 
 import com.elections.apimodel.response.RatingResponse;
 import com.elections.dbmodel.Citizen;
@@ -6,10 +6,9 @@ import com.elections.dbmodel.Contender;
 import com.elections.dbmodel.Idea;
 import com.elections.dbmodel.Rating;
 import com.elections.apimodel.request.RatingRequest;
-import com.elections.repository.CitizenRepository;
 import com.elections.repository.RatingRepository;
-import com.elections.service.exception.ResourceNotFoundException;
-import com.elections.service.exception.ValidationException;
+import com.elections.unitTests.service.exception.ResourceNotFoundException;
+import com.elections.unitTests.service.exception.ValidationException;
 import com.elections.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,12 +34,15 @@ public class RatingService {
     ContenderService contenderService;
 
     @Transactional
-    public RatingResponse addRating(RatingRequest ratingRequest)throws ValidationException{
+    public RatingResponse addRating(RatingRequest ratingRequest)throws ValidationException {
 
         Citizen citizen = citizenService.get(ratingRequest.getCitizenId()); // Takes care of citizen not found scenario
 
         Idea idea = ideaService.get(ratingRequest.getIdeaId())
                 .orElseThrow(() -> new ResourceNotFoundException("Idea", "id", ratingRequest.getIdeaId()));
+        if(ratingRequest.getRating() > Constants.MAX_RATING || ratingRequest.getRating() < Constants.MIN_RATING){
+            throw new ValidationException("Check your rating, should be in range "+Constants.MIN_RATING+"-"+Constants.MAX_RATING);
+        }
 
         Optional<Rating> ratingInDB = ratingRepository.findByCitizenAndIdea(citizen, idea);
 
@@ -94,6 +96,9 @@ public class RatingService {
 
     public boolean isEligibleForElections(Contender contender){
         List<Idea> ideas = contender.getManifesto();
+        if(ideas == null || ideas.size() == 0){
+            return false;
+        }
         Map<Integer, Integer> ideasMap = ratingRepository.findIdeasWithVotesBelowTheLimit(ideas);
         for (Map.Entry ideaEntry : ideasMap.entrySet()) {
             int votes = ((int)ideaEntry.getValue());

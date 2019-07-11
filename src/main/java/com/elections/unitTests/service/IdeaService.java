@@ -1,14 +1,13 @@
-package com.elections.service;
+package com.elections.unitTests.service;
 
 import com.elections.apimodel.request.IdeaRequest;
-import com.elections.apimodel.response.ContenderResponse;
 import com.elections.dbmodel.Citizen;
 import com.elections.dbmodel.Contender;
 import com.elections.dbmodel.Idea;
 import com.elections.dbmodel.Rating;
 import com.elections.repository.IdeaRepository;
-import com.elections.service.exception.ResourceNotFoundException;
-import com.elections.service.exception.ValidationException;
+import com.elections.unitTests.service.exception.ResourceNotFoundException;
+import com.elections.unitTests.service.exception.ValidationException;
 import com.elections.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;

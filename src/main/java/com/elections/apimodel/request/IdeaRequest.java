@@ -10,6 +10,10 @@ public class IdeaRequest {
     @NotNull
     private String description;
 
+    public IdeaRequest(String description){
+        this.description = description;
+    }
+
     public String getDescription() {
         return description;
     }

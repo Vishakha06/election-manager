@@ -1,8 +1,8 @@
-package com.elections.controller;
+package com.elections.unitTests;
 
 
 import com.elections.apimodel.response.ContenderResponse;
-import com.elections.service.ElectionService;
+import com.elections.unitTests.service.ElectionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

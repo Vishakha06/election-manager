@@ -1,11 +1,10 @@
-package com.elections.service;
+package com.elections.unitTests.service;
 
 import com.elections.apimodel.response.ContenderResponse;
 import com.elections.dbmodel.Citizen;
 import com.elections.dbmodel.Contender;
 import com.elections.repository.CitizenRepository;
-import com.elections.repository.ContenderRepository;
-import com.elections.service.exception.ResourceNotFoundException;
+import com.elections.unitTests.service.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.elections.service.exception;
+package com.elections.unitTests.service.exception;
 
 public class ValidationException extends Exception {
 

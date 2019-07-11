@@ -1,12 +1,12 @@
-package com.elections.controller;
+package com.elections.unitTests.controller;
 
 
 import com.elections.apimodel.response.ContenderResponse;
 import com.elections.dbmodel.Citizen;
-import com.elections.dbmodel.Contender;
-import com.elections.service.CitizenService;
-import com.elections.service.IdeaService;
-import com.elections.service.RatingService;
+import com.elections.unitTests.CitizenController;
+import com.elections.unitTests.service.CitizenService;
+import com.elections.unitTests.service.IdeaService;
+import com.elections.unitTests.service.RatingService;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,7 +1,7 @@
 package com.elections.application;
 
 
-import com.elections.controller.CitizenController;
+import com.elections.unitTests.CitizenController;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

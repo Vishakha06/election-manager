@@ -1,10 +1,8 @@
-package com.elections.service;
+package com.elections.unitTests.service;
 
 import com.elections.dbmodel.Citizen;
-import com.elections.dbmodel.Idea;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 
 @Service

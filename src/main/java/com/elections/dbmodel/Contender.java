@@ -26,7 +26,7 @@ public class Contender{
     @JsonManagedReference
     private List<Idea> manifesto;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Citizen> followers;
 
     public Contender(int contender_id){

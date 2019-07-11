@@ -1,4 +1,4 @@
-package com.elections.service;
+package com.elections.unitTests.service;
 
 import com.elections.apimodel.response.ContenderResponse;
 import com.elections.dbmodel.Citizen;
@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.elections.repository.ContenderRepository;
-import com.elections.service.exception.ResourceNotFoundException;
+import com.elections.unitTests.service.exception.ResourceNotFoundException;
 
 
 import java.util.*;

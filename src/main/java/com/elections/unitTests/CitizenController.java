@@ -1,14 +1,14 @@
-package com.elections.controller;
+package com.elections.unitTests;
 
 import com.elections.apimodel.response.ContenderResponse;
 import com.elections.apimodel.response.RatingResponse;
 import com.elections.dbmodel.Idea;
 import com.elections.apimodel.request.RatingRequest;
-import com.elections.service.CitizenService;
-import com.elections.service.IdeaService;
-import com.elections.service.RatingService;
-import com.elections.service.exception.ErrorResponse;
-import com.elections.service.exception.ResourceNotFoundException;
+import com.elections.unitTests.service.CitizenService;
+import com.elections.unitTests.service.IdeaService;
+import com.elections.unitTests.service.RatingService;
+import com.elections.unitTests.service.exception.ErrorResponse;
+import com.elections.unitTests.service.exception.ResourceNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +56,7 @@ public class CitizenController {
         Rate an idea
      */
     @PostMapping("/rating")
-    public ResponseEntity rateContender(@RequestBody RatingRequest ratingRequest){
+    public ResponseEntity rateIdea(@RequestBody RatingRequest ratingRequest){
         try {
             RatingResponse rating = ratingService.addRating(ratingRequest);
             return new ResponseEntity<>(rating, HttpStatus.OK);

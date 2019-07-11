@@ -1,5 +1,7 @@
 package com.elections.dbmodel;
 
+import com.elections.util.Constants;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -19,8 +21,8 @@ public class Rating {
     @JoinColumn(name="citizen_id")
     private Citizen citizen;
 
-    @Min(value = 0, message = "Rating can not be negative")
-    @Max(value = 10, message = "Rating has be less than or equal to 10")
+    @Min(value = Constants.MIN_RATING, message = "Rating can not be negative")
+    @Max(value = Constants.MAX_RATING, message = "Rating has be less than or equal to 10")
     private int rating;
 
     public Rating(){

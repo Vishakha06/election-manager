@@ -1,15 +1,13 @@
-package com.elections.service;
+package com.elections.unitTests.service;
 
 import com.elections.apimodel.response.ContenderResponse;
 import com.elections.dbmodel.Contender;
 import com.elections.dbmodel.Idea;
-import com.elections.repository.ContenderRepository;
-import com.elections.service.exception.ElectionResultException;
+import com.elections.unitTests.service.exception.ElectionResultException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.StreamSupport;
 
 @Service
 public class ElectionService {
@@ -33,15 +31,16 @@ public class ElectionService {
             // Skip the contender with idea rated less than 5 by 3 voters
             if(!ratingService.isEligibleForElections(contender))
                 continue;
-
             double ideaAvgSum = 0.0;
             for(Idea idea: contender.getManifesto()){
                 ideaAvgSum+= ratingService.getAverageRatingForIdea(idea);
             }
+
             double curContenderRating = 0.0;
             if (contender.getManifesto()!= null && contender.getManifesto().size() > 0) {
                 curContenderRating = ideaAvgSum/contender.getManifesto().size();
             }
+
             // Add up all the ratings and divide by number of voters
             if(curContenderRating > maxRating){
                 maxRating = curContenderRating;

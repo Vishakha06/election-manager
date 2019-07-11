@@ -1,13 +1,13 @@
-package com.elections.controller;
+package com.elections.unitTests;
 
 import com.elections.apimodel.request.IdeaRequest;
 import com.elections.apimodel.response.ContenderResponse;
 import com.elections.dbmodel.Contender;
 import com.elections.dbmodel.Idea;
-import com.elections.service.ContenderService;
-import com.elections.service.IdeaService;
-import com.elections.service.exception.ErrorResponse;
-import com.elections.service.exception.ValidationException;
+import com.elections.unitTests.service.ContenderService;
+import com.elections.unitTests.service.IdeaService;
+import com.elections.unitTests.service.exception.ErrorResponse;
+import com.elections.unitTests.service.exception.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

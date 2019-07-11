@@ -14,6 +14,12 @@ public class RatingRequest {
 
     private int rating;
 
+    public RatingRequest(int citizenId, int ideaId, int rating){
+        this.citizenId = citizenId;
+        this.ideaId = ideaId;
+        this.rating = rating;
+    }
+
     public int getCitizenId() {
         return citizenId;
     }
