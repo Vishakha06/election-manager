@@ -17,16 +17,16 @@ b.      Final rating = AvgRating of Idea 1 + Avg Rating of Idea 2 + Avg Ra
 11. You should consider writing code that you would be comfortable submitting for a PR. Please state any assumptions or areas you could not complete due to time pressure.
 
 ## Corner cases handled:
-1. Deleting a rating for an idea would mean that we update follower list of a contender(in case after deletion, this voter no longer falls under the category of follower for the contender).
-2. Posting a rating for an idea would update follower list if rating is greater than 5
+1. Deleting a rating for an idea would update the follower list of the contender (in case after deletion, this voter no longer falls under the category of follower for the contender).
+2. Posting a rating for an idea would update follower list if rating is greater than 5.
 3. Posting an idea would send a notification to all the followers of the contender(also to followers of follower, if follower is a contender)
-4. During results calculation, if we see a contender with an idea rater less than 5 by more than 3 voters, we eliminate the contender from election process
+4. During results calculation, if we see a contender with an idea rater less than 5 by more than 3 voters, we eliminate the contender from election process(as stated in the exercise).
 
 
 ## Pending tasks:
-1. Mappers classes for request and response
-2. Separate request response as a separate module to share with client
-3. Resolve tie between contenders
+1. Mapper classes for request and response.
+2. Separate request response in a separate module in order to share with client.
+3. Resolve tie between contenders(Multiple winners?).
 4. Once an idea is posted, it cannot be updated/deleted (if we allow the update, we need to decide a workflow for already posted ratings on the idea)
 5. Contenders can rate their own idea as or vote other contender’s idea (Need to evaluate the fairness aspect)
-6. Increase the unit test coverage and
+6. Increase the unit test coverage
