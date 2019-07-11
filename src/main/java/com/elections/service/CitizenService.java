@@ -16,7 +16,7 @@ public class CitizenService {
     CitizenRepository citizenRepository;
 
     @Autowired
-    ContenderRepository contenderRepository;
+    ContenderService contenderService;
 
     public Citizen create(Citizen citizen){
         return citizenRepository.save(citizen);
@@ -43,7 +43,7 @@ public class CitizenService {
         Citizen citizen = citizenRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Citizen", "id", id));
 
-        Contender contender = contenderRepository.save(new Contender(citizen));
+        Contender contender = contenderService.create(new Contender(citizen));
         return new ContenderResponse(contender.getId(), contender.getCitizen().getName(), contender.getManifesto());
     }
 

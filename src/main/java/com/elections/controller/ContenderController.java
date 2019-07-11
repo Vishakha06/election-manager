@@ -36,6 +36,7 @@ public class ContenderController {
         return contenderService.getContender(id);
     }
 
+
     @GetMapping("")
     public ResponseEntity getAllContenders(){
         try {
@@ -47,10 +48,13 @@ public class ContenderController {
         }
     }
 
-    @PostMapping("/{id}") // Post manifesto, add an idea
-    public ResponseEntity postIdea(@PathVariable int id, @RequestBody IdeaRequest ideaRequest) {
+    /*
+    Post an idea
+     */
+    @PostMapping("/{id}")
+    public ResponseEntity postIdea(@PathVariable int contenderId, @RequestBody IdeaRequest ideaRequest) {
         try {
-            Idea idea = ideaService.addIdea(id, ideaRequest);
+            Idea idea = ideaService.addIdea(contenderId, ideaRequest);
             return new ResponseEntity<>(idea, HttpStatus.OK);
         } catch(ValidationException vs) {
             LOGGER.error("Action=postIdea Status=ValidationException Message=", vs);

@@ -26,7 +26,7 @@ public class RatingService {
     RatingRepository ratingRepository;
 
     @Autowired
-    CitizenRepository citizenRepository;
+    CitizenService citizenService;
 
     @Autowired
     IdeaService ideaService;
@@ -37,8 +37,7 @@ public class RatingService {
     @Transactional
     public RatingResponse addRating(RatingRequest ratingRequest)throws ValidationException{
 
-        Citizen citizen = citizenRepository.findById(ratingRequest.getCitizenId())
-                .orElseThrow(() -> new ResourceNotFoundException("Citizen", "id", ratingRequest.getCitizenId()));
+        Citizen citizen = citizenService.get(ratingRequest.getCitizenId()); // Takes care of citizen not found scenario
 
         Idea idea = ideaService.get(ratingRequest.getIdeaId())
                 .orElseThrow(() -> new ResourceNotFoundException("Idea", "id", ratingRequest.getIdeaId()));
@@ -62,8 +61,7 @@ public class RatingService {
     @Transactional
     public void deleteRating(RatingRequest ratingRequest) {
 
-        Citizen citizen = citizenRepository.findById(ratingRequest.getCitizenId())
-                .orElseThrow(() -> new ResourceNotFoundException("Citizen", "id", ratingRequest.getCitizenId()));
+        Citizen citizen = citizenService.get(ratingRequest.getCitizenId()); // Takes care of citizen not found scenario
 
         Idea idea = ideaService.get(ratingRequest.getIdeaId())
                 .orElseThrow(() -> new ResourceNotFoundException("Idea", "id", ratingRequest.getIdeaId()));

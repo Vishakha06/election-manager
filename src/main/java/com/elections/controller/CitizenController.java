@@ -53,14 +53,6 @@ public class CitizenController {
     }
 
     /*
-        Only for testing
-     */
-    @GetMapping("/ideas")
-    public Iterable<Idea> getIdeas(){
-        return ideaService.get();
-    }
-
-    /*
         Rate an idea
      */
     @PostMapping("/rating")
@@ -76,7 +68,9 @@ public class CitizenController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
-
+    /*
+        Delete a rating
+     */
     @DeleteMapping("/rating")
     public ResponseEntity deleteRating(@RequestBody RatingRequest ratingRequest){
         try {
@@ -117,5 +111,10 @@ public class CitizenController {
     @PutMapping("")
     public Citizen updateCitizen(@Valid @RequestBody Citizen citizen){
         return citizenService.update(citizen);
+    }
+
+    @GetMapping("/ideas")
+    public Iterable<Idea> getIdeas(){
+        return ideaService.get();
     }
 }
