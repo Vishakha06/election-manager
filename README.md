@@ -1,6 +1,6 @@
 # election-manager
-
-#Exercise
+## Postman collection: https://www.getpostman.com/collections/057b4ab5d70f03e2bf5a
+## Exercise
 A council would like to try new way of elections in a city and adopt it to other cities if it is successful. They want us to build a E-Board for managing elections with following capabilities.
 1. Citizens can nominate themselves for the elections as contenders.
 2. Contender can post their manifesto on the board. Each manifesto may contain a maximum of 3 ideas.
@@ -16,14 +16,14 @@ b.      Final rating = AvgRating of Idea 1 + Avg Rating of Idea 2 + Avg Ra
 10. Build this system considering space and time efficiency along with OOP principles. [User interface is not a must have. Running program in a terminal is sufficient]
 11. You should consider writing code that you would be comfortable submitting for a PR. Please state any assumptions or areas you could not complete due to time pressure.
 
-##Corner cases handled:
+## Corner cases handled:
 1. Deleting a rating for an idea would mean that we update follower list of a contender(in case after deletion, this voter no longer falls under the category of follower for the contender).
 2. Posting a rating for an idea would update follower list if rating is greater than 5
 3. Posting an idea would send a notification to all the followers of the contender(also to followers of follower, if follower is a contender)
 4. During results calculation, if we see a contender with an idea rater less than 5 by more than 3 voters, we eliminate the contender from election process
 
 
-##Pending tasks:
+## Pending tasks:
 1. Mappers classes for request and response
 2. Separate request response as a separate module to share with client
 3. Resolve tie between contenders
